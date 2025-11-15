@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do Web App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>To-Do Web App</h1>
+      <p class="subtitle">Add tasks, set date/time, edit, complete and keep them saved.</p>
+    </header>
+
+    <section class="add-task">
+      <input id="task-title" type="text" placeholder="Task title..." />
+      <textarea id="task-desc" rows="2" placeholder="Description (optional)"></textarea>
+
+      <div class="controls-row">
+        <input id="task-due" type="datetime-local" />
+        <select id="task-priority" title="Priority">
+          <option value="normal">Normal</option>
+          <option value="high">High</option>
+          <option value="low">Low</option>
+        </select>
+
+        <button id="add-btn" class="btn primary">Add Task</button>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <div class="left">
+        <label>
+          <input type="radio" name="filter" value="all" checked /> All
+        </label>
+        <label>
+          <input type="radio" name="filter" value="active" /> Active
+        </label>
+        <label>
+          <input type="radio" name="filter" value="completed" /> Completed
+        </label>
+      </div>
+
+      <div class="right">
+        <input id="search" type="search" placeholder="Search tasks..." />
+        <button id="clear-completed" class="btn">Clear Completed</button>
+      </div>
+    </section>
+
+    <section id="tasks-list" class="tasks-list">
+      <!-- Tasks will be rendered here -->
+    </section>
+
+    <footer class="footer">
+      <small>Saved locally in your browser. Works offline.</small>
+    </footer>
+  </main>
+
+  <!-- Edit modal (simple) -->
+  <div id="edit-modal" class="modal hidden">
+    <div class="modal-inner">
+      <h2>Edit Task</h2>
+      <input id="edit-title" type="text" />
+      <textarea id="edit-desc" rows="3"></textarea>
+      <div class="controls-row">
+        <input id="edit-due" type="datetime-local" />
+        <select id="edit-priority">
+          <option value="normal">Normal</option>
+          <option value="high">High</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button id="save-edit" class="btn primary">Save</button>
+        <button id="cancel-edit" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
